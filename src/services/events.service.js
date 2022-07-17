@@ -5,9 +5,12 @@ const getAll = async () => {
   const userID = JSON.parse(localStorage.getItem("userID"));
 
   const result = await axios
-    .get(`http://localhost:4000/api/v1/seatArrangementRoute/${userID}`, {
-      withCredentials: true,
-    })
+    .get(
+      `https://event-seating-server.herokuapp.com/api/v1/seatArrangementRoute/${userID}`,
+      {
+        withCredentials: true,
+      }
+    )
     .catch((error) => {
       console.log(error);
     });
@@ -18,9 +21,13 @@ const getAll = async () => {
 const post = async (data) => {
   console.log("data received in event service" + data);
   const result = await axios
-    .post("http://localhost:4000/api/v1/seatArrangementRoute", data, {
-      withCredentials: true,
-    })
+    .post(
+      "https://event-seating-server.herokuapp.com/api/v1/seatArrangementRoute",
+      data,
+      {
+        withCredentials: true,
+      }
+    )
     .catch((error) => {
       console.log(error);
     });
@@ -30,9 +37,12 @@ const post = async (data) => {
 const removeEvent = async () => {
   const eventID = JSON.parse(localStorage.getItem("eventID"));
   const result = await axios
-    .delete(`http://localhost:4000/api/v1/seatArrangementRoute/${eventID}`, {
-      withCredentials: true,
-    })
+    .delete(
+      `https://event-seating-server.herokuapp.com/api/v1/seatArrangementRoute/${eventID}`,
+      {
+        withCredentials: true,
+      }
+    )
     .catch((error) => {
       console.log(error);
     });

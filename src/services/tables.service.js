@@ -5,9 +5,12 @@ const getAll = async () => {
   const eventID = JSON.parse(localStorage.getItem("eventID"));
 
   const result = await axios
-    .get(`http://localhost:4000/api/v1/tableRoute/tables/${eventID}`, {
-      withCredentials: true,
-    })
+    .get(
+      `https://event-seating-server.herokuapp.com/api/v1/tableRoute/tables/${eventID}`,
+      {
+        withCredentials: true,
+      }
+    )
     .catch((error) => {
       console.log(error);
     });
@@ -16,9 +19,12 @@ const getAll = async () => {
 const get = async () => {
   const tableID = JSON.parse(localStorage.getItem("tableID"));
   const result = await axios
-    .get(`http://localhost:4000/api/v1/tableRoute/${tableID}`, {
-      withCredentials: true,
-    })
+    .get(
+      `https://event-seating-server.herokuapp.com/api/v1/tableRoute/${tableID}`,
+      {
+        withCredentials: true,
+      }
+    )
     .catch((error) => {
       console.log(error);
     });
@@ -28,9 +34,13 @@ const get = async () => {
 const post = async (data) => {
   const eventID = JSON.parse(localStorage.getItem("eventID"));
   const result = await axios
-    .post(`http://localhost:4000/api/v1/tableRoute/${eventID}`, data, {
-      withCredentials: true,
-    })
+    .post(
+      `https://event-seating-server.herokuapp.com/api/v1/tableRoute/${eventID}`,
+      data,
+      {
+        withCredentials: true,
+      }
+    )
     .catch((error) => {
       console.log(error);
     });
@@ -40,9 +50,13 @@ const post = async (data) => {
 const addGuest = async (data) => {
   const tableID = JSON.parse(localStorage.getItem("tableID"));
   const result = await axios
-    .put(`http://localhost:4000/api/v1/tableRoute/add_guest/${tableID}`, data, {
-      withCredentials: true,
-    })
+    .put(
+      `https://event-seating-server.herokuapp.com/api/v1/tableRoute/add_guest/${tableID}`,
+      data,
+      {
+        withCredentials: true,
+      }
+    )
     .catch((error) => {
       console.log(error);
     });
@@ -54,7 +68,7 @@ const removeGuest = async (data) => {
   const tableID = JSON.parse(localStorage.getItem("tableID"));
   const result = await axios
     .put(
-      `http://localhost:4000/api/v1/tableRoute/remove_guest/${tableID}`,
+      `https://event-seating-server.herokuapp.com/api/v1/tableRoute/remove_guest/${tableID}`,
       data,
       {
         withCredentials: true,
@@ -69,9 +83,12 @@ const removeGuest = async (data) => {
 const removeTable = async (data) => {
   const tableID = JSON.parse(localStorage.getItem("tableID"));
   const result = await axios
-    .delete(`http://localhost:4000/api/v1/tableRoute/remove_table/${tableID}`, {
-      withCredentials: true,
-    })
+    .delete(
+      `https://event-seating-server.herokuapp.com/api/v1/tableRoute/remove_table/${tableID}`,
+      {
+        withCredentials: true,
+      }
+    )
     .catch((error) => {
       console.log(error);
     });

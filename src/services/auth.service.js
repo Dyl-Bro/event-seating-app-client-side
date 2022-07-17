@@ -2,7 +2,7 @@ import axios from "axios";
 
 const registerUser = async (body) => {
   const response = await axios.post(
-    "http://localhost:4000/api/v1/userRoute/register",
+    "https://event-seating-server.herokuapp.com/api/v1/userRoute/register",
     body
   );
   if (response.data) {
@@ -14,7 +14,7 @@ const registerUser = async (body) => {
 //GET /api/v1/userRoute/null - - - - ms
 const loginUser = async (body) => {
   const response = await axios.post(
-    "http://localhost:4000/api/v1/userRoute/login",
+    "https://event-seating-server.herokuapp.com/api/v1/userRoute/login",
     body
   );
   if (response.data) {

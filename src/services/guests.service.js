@@ -5,9 +5,13 @@ const addGuest = async (data) => {
   console.log("DATA RECEIVED IN table-services -------->  " + data);
   const tableID = JSON.parse(localStorage.getItem("tableID"));
   const result = await axios
-    .put(`http://localhost:4000/api/v1/tableRoute/add_guest/${tableID}`, data, {
-      withCredentials: true,
-    })
+    .put(
+      `https://event-seating-server.herokuapp.com/api/v1/tableRoute/add_guest/${tableID}`,
+      data,
+      {
+        withCredentials: true,
+      }
+    )
     .catch((error) => {
       console.log(error);
     });
@@ -19,7 +23,7 @@ const removeGuest = async (data) => {
   const tableID = JSON.parse(localStorage.getItem("tableID"));
   const result = await axios
     .put(
-      `http://localhost:4000/api/v1/tableRoute/remove_guest/${tableID}`,
+      `https://event-seating-server.herokuapp.com/api/v1/tableRoute/remove_guest/${tableID}`,
       data,
       {
         withCredentials: true,
