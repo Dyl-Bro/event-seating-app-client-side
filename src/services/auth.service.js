@@ -8,22 +8,23 @@ const registerUser = async (body) => {
   if (response.data) {
     localStorage.setItem("New User", JSON.stringify(response.data));
   }
+  console.log("returned user" + response.data);
   return response.data;
 };
-
+//GET /api/v1/userRoute/null - - - - ms
 const loginUser = async (body) => {
   const response = await axios.post(
     "http://localhost:4000/api/v1/userRoute/login",
     body
   );
   if (response.data) {
-    localStorage.setItem("user", JSON.stringify(response.data));
+    localStorage.setItem("userID", JSON.stringify(response.data.userID));
   }
   return response.data;
 };
 
 const logoutUser = () => {
-  localStorage.removeItem("user");
+  localStorage.removeItem("userID");
   localStorage.removeItem("New User");
 };
 

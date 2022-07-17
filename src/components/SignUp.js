@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -7,21 +8,14 @@ import { register, reset } from "../features/authSlice";
 function SignUp() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user, isLoading, isSuccess, isError } = useSelector(
-    (state) => state.auth
-  );
+  const { user, isSignedUp, isError } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    if (isError) {
-      //toast.error("Error occured");
+    if (isSignedUp || user) {
+      window.alert("Registration Successful! Now Log-In!");
       dispatch(reset());
     }
-    if (isSuccess || user) {
-      //toast.success("Registration Successful!");
-      navigate("/login");
-      dispatch(reset());
-    }
-  }, [dispatch, navigate, isLoading, isSuccess, isError, user]);
+  }, [dispatch, isSignedUp, user]);
   const initState = {
     name: "",
     email: "",
@@ -42,8 +36,6 @@ function SignUp() {
     e.preventDefault();
     console.log("REACHED SAVE REG");
     const registrationData = { name, email, password };
-    console.log(registrationData);
-
     dispatch(register(registrationData));
   };
   return (
@@ -103,7 +95,7 @@ function SignUp() {
           <button
             className="
         rounded-lg
-        p-1 
+        p-1 mb-2
         border-solid border-2 
         text-white 
         hover:text-teal-800 

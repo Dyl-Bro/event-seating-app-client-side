@@ -1,5 +1,5 @@
 import React from "react";
-
+import { toast } from "react-toastify";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { login, reset } from "../features/authSlice";
@@ -8,20 +8,21 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user, isLoading, isSuccess, isError } = useSelector(
+  const { user, isLoading, isLoggedIn, isError } = useSelector(
     (state) => state.auth
   );
 
   useEffect(() => {
     if (isError) {
-      //toast.error("Error occured");
+      toast.error("unsuccessful...Try again");
       dispatch(reset());
     }
-    if (isSuccess) {
-      //toast.success("Login Successful!");
+    if (isLoggedIn) {
+      toast.success("Login Successful!");
+      navigate("/view_events");
       dispatch(reset());
     }
-  }, [dispatch, navigate, isLoading, isSuccess, isError]);
+  }, [dispatch, navigate, isLoading, isLoggedIn, isError]);
 
   const initState = {
     email: "",
@@ -42,7 +43,6 @@ function Login() {
     e.preventDefault();
     console.log("REACHED SAVE LOGIN");
     const loginData = { email, password };
-    console.log(loginData);
     dispatch(login(loginData));
   };
   return (
