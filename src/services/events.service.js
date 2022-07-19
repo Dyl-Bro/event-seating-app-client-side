@@ -6,7 +6,7 @@ const getAll = async () => {
 
   const result = await axios
     .get(
-      `https://event-seating-server.herokuapp.com/api/v1/seatArrangementRoute/${userID}`,
+      `https://api.youreventseater.online/api/v1/seatArrangementRoute/${userID}`,
       {
         withCredentials: true,
       }
@@ -22,7 +22,7 @@ const post = async (data) => {
   console.log("data received in event service" + data);
   const result = await axios
     .post(
-      "https://event-seating-server.herokuapp.com/api/v1/seatArrangementRoute",
+      "https://api.youreventseater.online/api/v1/seatArrangementRoute",
       data,
       {
         withCredentials: true,
@@ -38,7 +38,7 @@ const removeEvent = async () => {
   const eventID = JSON.parse(localStorage.getItem("eventID"));
   const result = await axios
     .delete(
-      `https://event-seating-server.herokuapp.com/api/v1/seatArrangementRoute/${eventID}`,
+      `https://api.youreventseater.online/api/v1/seatArrangementRoute/${eventID}`,
       {
         withCredentials: true,
       }

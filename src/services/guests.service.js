@@ -6,7 +6,7 @@ const addGuest = async (data) => {
   const tableID = JSON.parse(localStorage.getItem("tableID"));
   const result = await axios
     .put(
-      `https://event-seating-server.herokuapp.com/api/v1/tableRoute/add_guest/${tableID}`,
+      `https://api.youreventseater.online/api/v1/tableRoute/add_guest/${tableID}`,
       data,
       {
         withCredentials: true,
@@ -23,7 +23,7 @@ const removeGuest = async (data) => {
   const tableID = JSON.parse(localStorage.getItem("tableID"));
   const result = await axios
     .put(
-      `https://event-seating-server.herokuapp.com/api/v1/tableRoute/remove_guest/${tableID}`,
+      `https://api.youreventseater.online/api/v1/tableRoute/remove_guest/${tableID}`,
       data,
       {
         withCredentials: true,

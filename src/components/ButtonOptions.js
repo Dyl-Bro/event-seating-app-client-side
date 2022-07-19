@@ -13,7 +13,7 @@ function ButtonOptions({ homeButton }) {
 
   async function getUserName() {
     const result = await axios.get(
-      `https://event-seating-server.herokuapp.com/api/v1/userRoute/${userID}`
+      `https://api.youreventseater.online/api/v1/userRoute/${userID}`
     );
     setName(result.data.name);
   }
