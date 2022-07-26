@@ -94,43 +94,6 @@ export const deleteTable = createAsyncThunk(
   }
 );
 
-// export const deleteApplication = createAsyncThunk(
-//   "applications/deleteApp",
-//   async (thunkAPI) => {
-//     try {
-//       const response = await applicationService.deleteApp();
-//       return response;
-//     } catch (error) {
-//       const message =
-//         (error.response &&
-//           error.response.data &&
-//           error.response.data.message) ||
-//         error.message ||
-//         error.toString();
-//       thunkAPI.dispatch(setMessage(message));
-//       return thunkAPI.rejectWithValue(message);
-//     }
-//   }
-// );
-
-// export const updateApplication = createAsyncThunk(
-//   "applications/update",
-//   async ({ interview_received, offer_received }, thunkAPI) => {
-//     try {
-//       await applicationService.update({ interview_received, offer_received });
-//     } catch (error) {
-//       const message =
-//         (error.response &&
-//           error.response.data &&
-//           error.response.data.message) ||
-//         error.message ||
-//         error.toString();
-//       thunkAPI.dispatch(setMessage(message));
-//       return thunkAPI.rejectWithValue(message);
-//     }
-//   }
-// );
-
 const initialState = {
   tables: [],
   isLoading: false,
@@ -206,12 +169,6 @@ const tablesSlice = createSlice({
     [deleteTable.pending]: (state, action) => {
       state.isLoading = true;
     },
-    // [updateApplication.fulfilled]: (state, action) => {
-    //   state.isSuccess = true;
-    // },
-    // [deleteApplication.fulfilled]: (state, action) => {
-    //   state.isSuccess = true;
-    // },
   },
 });
 export const { reset, add_table } = tablesSlice.actions;

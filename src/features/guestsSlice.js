@@ -67,12 +67,6 @@ const guestsSlice = createSlice({
     [removeGuest.pending]: (state, action) => {
       state.isLoading = true;
     },
-    // [updateApplication.fulfilled]: (state, action) => {
-    //   state.isSuccess = true;
-    // },
-    // [deleteApplication.fulfilled]: (state, action) => {
-    //   state.isSuccess = true;
-    // },
   },
 });
 export const { reset } = guestsSlice.actions;
